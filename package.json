@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-git-clone",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A plugin for Gatsby that clones a remote Git repository before building",
   "author": "Maarten Zuidhoorn <maarten@zuidhoorn>",
   "homepage": "https://github.com/Mrtenz/gatsby-plugin-git-clone",
