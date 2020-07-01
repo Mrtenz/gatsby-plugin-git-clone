@@ -1,0 +1,19 @@
+language: node_js
+
+cache:
+  yarn: true
+
+install:
+  - yarn --silent
+
+script:
+  - yarn run lint
+
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_API_KEY
+  cleanup: false
+  edge: true
+  on:
+    tags: true

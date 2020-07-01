@@ -1,0 +1,71 @@
+{
+  "name": "gatsby-plugin-git-clone",
+  "version": "0.0.0",
+  "description": "A plugin for Gatsby that clones a remote Git repository before building",
+  "author": "Maarten Zuidhoorn <maarten@zuidhoorn>",
+  "homepage": "https://github.com/Mrtenz/gatsby-plugin-git-clone",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mrtenz/gatsby-plugin-git-clone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mrtenz/gatsby-plugin-git-clone/issues"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "git",
+    "clone"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "src",
+    "gatsby-node.js",
+    "index.js"
+  ],
+  "scripts": {
+    "build": "babel --extensions '.ts' src --out-dir .",
+    "prepublish": "yarn run build",
+    "lint": "yarn run lint:tsc && yarn run lint:eslint && yarn run lint:prettier",
+    "lint:tsc": "tsc --noEmit",
+    "lint:eslint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js,.jsx",
+    "lint:prettier": "prettier --check --ignore-path .gitignore '**/*.{ts,tsx,js,json}'",
+    "prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,tsx,js,json}'"
+  },
+  "dependencies": {
+    "simple-git": "^2.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "gatsby": "^2.23.12",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{js,json}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
